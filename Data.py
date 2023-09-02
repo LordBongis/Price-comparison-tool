@@ -14,7 +14,7 @@ def user_budget():
   
   #While loop which allows for the following question to be able to loop when a wrong input is entered.
   while choosing_budget == True:
-    budget_choice = int(input("Please enter the ammount of money you are willing to spend, this will act as your budget.")).strip()
+    budget_choice = (input("Please enter the ammount of money you are willing to spend, this will act as your budget ")).strip()
     if budget_choice.isnumeric():
       budget = int(budget_choice)
       choosing_budget = False
