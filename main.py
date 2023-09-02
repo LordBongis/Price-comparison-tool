@@ -4,4 +4,4 @@ import Data
 
 #This runs the files in the order the program requires ie Intro -> Data -> Analyze -> End
 Intro.Instructions()
-
+Data.user_budget()
