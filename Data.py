@@ -36,15 +36,33 @@ def product_information():
   making_products = True
 
   #While statment so that the product information inputs can be looped if needed.
-  while making_products == True:
+  while making_products:
     name = input("Please enter a product's name ").strip().lower()
-    cost = int(input("Please enter the price of that product "))
-    value = int(input("Please enter the value of this product from 1 (lowest) to 10 (highest) "))
-    max_price = budget
+    cost = 0
+    value = 0
+    
+    while cost == 0:
+      cost_input = input("please enter the price of that product ")
+      
+      try:
+        cost = int(cost_input)
+        max_price = budget
+        if cost >= max_price:
+          #This is an error prevention if statment, so that if the cost of an item is larger then their budget, it cannot be entered.
+          print("The product cannot cost more then your budget! Please enter a different product ")
+          cost = 0
+      except ValueError:
+        print("The cost must be a valid number. Please try again. ")
 
-    #This is an error prevention if statment, so that if the cost of an item is larger then their budget, it cannot be entered.
-    if cost >= max_price:
-      print("The product cannot cost more then your budget! Please enter a different product")
+    while value == 0:
+       value_input = input("Please enter the value of this product from 1 to 10. (1 being worst, 10 being best) ")
+       try:
+        value = int(value_input)
+        if not 1 <= value <= 10:
+          print("The value must be between 1 and 10. Please try again.")
+          value = 0
+       except ValueError:
+         print("The value must be a valid number. Please try again.")
       
     else:
       product_data = Product(name, cost, value)
