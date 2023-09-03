@@ -14,11 +14,13 @@ budget = 0
 #These two variables are to have constraints on what the products can cost, ie it cannot be 0, and the max price will depend on the budget they enter.
 min_price = 1
 max_price = 0
+
+#This function lets the user choose how much their budget is.
 def user_budget():
   global budget
   choosing_budget = True
   
-  #While loop which allows for the following question to be able to loop when a wrong input is entered.
+  #While loop which allows for the user to input how much money is in their budget.
   while choosing_budget == True:
     budget_choice = input("Please enter the ammount of money you are willing to spend, this will act as your budget ").strip()
     if budget_choice.isnumeric():
@@ -28,15 +30,17 @@ def user_budget():
     else:
       print("The answer you enter must be a number! Please try again.")
       
-
+#This function lets the user input product data, and allows for multiple products to be entered whist saving them to a list.
 def product_information():
   making_products = True
-  
+
+  #While statment so that the product information inputs can be looped if needed.
   while making_products == True:
     name = input("Please enter a product's name ").strip().lower()
     cost = int(input("Please enter the price of that product "))
     max_price = budget
-    
+
+    #This is an error prevention if statment, so that if the cost of an item is larger then their budget, it cannot be entered.
     if cost >= max_price:
       print("The product cannot cost more then your budget! Please enter a different product")
       
@@ -44,6 +48,7 @@ def product_information():
       product_data = Product(name, cost)
       products.append(product_data)
       print("Information stored! ")
+      #This allows for the product list to be printed will all of the products in the list.
       print("Current product list: ")
       for product in products:
         print(product)
