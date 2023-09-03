@@ -1,11 +1,12 @@
 #Class to sort the product information.
 class Product:
-  def __init__(self, name, cost):
+  def __init__(self, name, cost, value):
     self.name = name
     self.cost = cost
+    self.value = value
   #This function allows for the product information to be more easily printed/shown to the user
   def __str__(self):
-    return "Product names: {}, Costs: ${}".format(self.name, self.cost)
+    return "Product names: {}, Costs: ${}, Value {}/10 ".format(self.name, self.cost, self.value)
     
 #List to hold the Product information
 products = []
@@ -38,6 +39,7 @@ def product_information():
   while making_products == True:
     name = input("Please enter a product's name ").strip().lower()
     cost = int(input("Please enter the price of that product "))
+    value = int(input("Please enter the value of this product from 1 (lowest) to 10 (highest) "))
     max_price = budget
 
     #This is an error prevention if statment, so that if the cost of an item is larger then their budget, it cannot be entered.
@@ -45,7 +47,7 @@ def product_information():
       print("The product cannot cost more then your budget! Please enter a different product")
       
     else:
-      product_data = Product(name, cost)
+      product_data = Product(name, cost, value)
       products.append(product_data)
       print("Information stored! ")
       #This allows for the product list to be printed will all of the products in the list.
