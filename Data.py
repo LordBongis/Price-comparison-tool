@@ -55,7 +55,7 @@ def product_information():
       for product in products:
         print(product)
       additional_product = input("Would you like to enter another product and its information? Y/N ").strip().lower()
-      
+      #This if statment loops the product creation on a yes input, or proceds to Analysation on no.
       if additional_product == "yes" or additional_product == "y":
         print("Next product! ")
         
