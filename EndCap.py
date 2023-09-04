@@ -6,7 +6,8 @@ def stop_looping_program(looping_program):
   #while loop for error prevention
   while asking_loop == True:
     loop_ask = input("Would you like to add more products to the list and run the calculation again? ").strip().lower()
-    
+
+    #If statment so that the different answers to the loop_ask input can be used differently.
     if loop_ask == "yes" or loop_ask == "y":
       print("Looping program! ")
       asking_loop = False
@@ -17,4 +18,5 @@ def stop_looping_program(looping_program):
 
     else:
       print("You must enter Yes or no. Please try again")
+    #returning the looping_program so the main file can decide weither or not to loop the program.
     return looping_program
