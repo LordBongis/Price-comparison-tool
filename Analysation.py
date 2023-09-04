@@ -15,7 +15,7 @@ def calculate_product_value(products, budget):
         best_value_product = product
   #If statment to inform the user on the best product.
   if best_value_product:
-    print("The best value for money is {} with a price to value raitio of {}".format(best_value_product.name, best_value_ratio))
+    print("The best value for money is {} with a price to value ratio of {}".format(best_value_product.name, best_value_ratio))
   else: 
     print("No products fit within the budget. ")
 #This function simply returns the product value.
